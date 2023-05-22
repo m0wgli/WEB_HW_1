@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from abc import ABC, abstractmethod
+
 from notebook import NOTE_BOOK, Text, Keyword, RecordNote
 from adressbook import ADRESS_BOOK, Record, Name, Phone
 from weather_and_bank import exchange_rates, show_weather
@@ -275,6 +277,24 @@ def edit_contact():
                 return "Такої команди я не знаю."
     else:
         return f"Контакт з ім'ям {contact_input} не знайдено!"
+
+
+class AbstractInterface(ABC):
+    @abstractmethod
+    def adress_book(self):
+        ...
+
+    @abstractmethod
+    def note_book(self):
+        ...
+
+    @abstractmethod
+    def show_notes(self):
+        ...
+
+    @abstractmethod
+    def show_all_contacts(self):
+        ...
 
 
 class Interface:
